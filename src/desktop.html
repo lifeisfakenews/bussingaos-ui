@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BussingaOS - Desktop</title>
+
+    <link rel="stylesheet" href="/base.css">
+    <link rel="stylesheet" href="/modal.css">
+
+    <script src="/base.js"></script>
+    <script src="/modal.js"></script>
+    <!-- Boxicons -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+</head>
+<body>
+    <main>
+
+    </main>
+    <nav class="taskbar">
+        <div class="taskbar-launcher">
+            <button class="taskbar-launcher-button">
+                <box-icon color="white" type="solid" size="md" name="category-alt"></box-icon>
+            </button>
+            <div class="taskbar-launcher-menu" aria-expanded="false">
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="calculator"></box-icon>
+                    <p>Calculator</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="calendar"></box-icon>
+                    <p>Calendar</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="time-five"></box-icon>
+                    <p>Clock</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="user-detail"></box-icon>
+                    <p>Contacts</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="envelope"></box-icon>
+                    <p>Email</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="comment-dots"></box-icon>
+                    <p>Messages</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="music"></box-icon>
+                    <p>Music</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="notepad"></box-icon>
+                    <p>Notes</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="photo-album"></box-icon>
+                    <p>Photos</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="cog"></box-icon>
+                    <p>Settings</p>
+                </div>
+                <div class="taskbar-launcher-menu-item">
+                    <box-icon color="var(--_icon-color)" type="solid" size="cssSize" name="video"></box-icon>
+                    <p>Video</p>
+                </div>
+            </div>
+        </div>
+        <div class="taskbar-seperator"></div>
+        <div class="taskbar-app">
+            <box-icon color="white" type="solid" size="md" name="calculator"></box-icon>
+        </div>
+    </nav>
+
+    <!-- Debug settings / tests -->
+    <dialog class="modal" id="settings-modal">
+        <div class="modal-inner">
+            <div class="modal-head">
+                <h2 class="modal-title">Options</h2>
+                <button class="modal-close" onclick="this.closest('dialog').close()">X</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-option">
+                    <label class="option-label" for="lightTheme">Light UI</label>
+                    <div class="option-value">
+                        <label class="option-checkbox">
+                            <input type="checkbox" id="lightTheme" />
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-option">
+                    <label class="option-label" for="taskbarFloat">Floating taskbar</label>
+                    <div class="option-value">
+                        <label class="option-checkbox">
+                            <input type="checkbox" id="taskbarFloat" />
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-option">
+                    <p class="option-label">Taskbar location</p>
+                    <div class="option-value">
+                        <label class="option-radio" for="taskbarLocationTop">
+                            <input type="radio" id="taskbarLocationTop" name="taskbarLocation" value="top" />
+                            <span>Top</span>
+                        </label>
+                        <label class="option-radio" for="taskbarLocationRight">
+                            <input type="radio" id="taskbarLocationRight" name="taskbarLocation" value="right" />
+                            <span>Right</span>
+                        </label>
+                        <label class="option-radio" for="taskbarLocationBottom">
+                            <input type="radio" id="taskbarLocationBottom" name="taskbarLocation" value="bottom" checked />
+                            <span>Bottom</span>
+                        </label>
+                        <label class="option-radio" for="taskbarLocationLeft">
+                            <input type="radio" id="taskbarLocationLeft" name="taskbarLocation" value="left" />
+                            <span>Left</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-option">
+                    <p class="option-label">Launcher Type</p>
+                    <div class="option-value">
+                        <label class="option-radio" for="launcherTypeList">
+                            <input type="radio" id="launcherTypeList" name="launcherType" value="list" checked />
+                            <span>List</span>
+                        </label>
+                        <label class="option-radio" for="launcherTypeGrid">
+                            <input type="radio" id="launcherTypeGrid" name="launcherType" value="grid" />
+                            <span>Grid</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </dialog>
+</body>
+</html>

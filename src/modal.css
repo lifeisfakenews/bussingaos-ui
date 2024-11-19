@@ -1,0 +1,187 @@
+.modal {
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    min-width: 500px;
+    transform: scale(1);
+    opacity:0;
+    animation: modal_modalOut .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+.modal[open] {
+    animation: modal_modalIn .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+.modal::backdrop {
+    background:rgba(0,0,0,.2);
+    backdrop-filter: blur(2px);
+}
+
+body {
+    animation: modal_bodyOut .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+body:has(.modal[open]) {
+    animation: modal_bodyIn .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+
+@keyframes modal_modalIn {
+    0% {
+        scale: .8;
+        top: 1000px;
+        opacity: 0;
+    }
+    100% {
+        scale: 1;
+        translate: 0 0;
+        opacity: 1;
+    }
+}
+@keyframes modal_modalOut {
+    100% {
+        scale: .8;
+        top: 1000px;
+        opacity: 0;
+    }
+    0% {
+        scale: 1;
+        translate: 0 0;
+        opacity: 1;
+    }
+}
+
+@keyframes modal_bodyIn {
+    0% {scale: 1;}
+    100% {scale: .85;}
+}
+@keyframes modal_bodyOut {
+    100% {scale: 1;}
+    0% {scale: .85;}
+}
+
+.modal-inner {
+    padding: 10px;
+}
+
+.modal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.modal-close:is(:hover, :focus-visible) {
+    color: rgba(255, 255, 255, 1);
+}
+
+.modal-body {
+    padding: 10px;
+}
+
+.modal-option {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+}
+
+:is(.option-checkbox, .option-radio) input {
+    appearance: none;
+    margin: 0;
+    position: absolute;
+    width: 0;
+    opacity: 0;
+}
+
+
+.option-label {
+    margin: 0;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+.option-value {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+.option-checkbox {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+.option-checkbox:is(:hover, :focus-visible) {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.option-checkbox span {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: block;
+    width: .75rem;
+    aspect-ratio: 1 / 1;
+    transition: .3s ease-in-out;
+}
+
+.option-checkbox input:checked + span {
+    background: rgba(255, 255, 255, 1);
+}
+
+
+.option-radio {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: none;
+    padding: 4px 10px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+.option-radio:nth-child(1 of .option-radio) {
+    border-radius: 5px 0 0 5px;
+}
+.option-radio:nth-last-child(1 of .option-radio) {
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0 5px 5px 0;
+}
+.option-radio:is(:hover, :focus-visible) {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+.option-radio:has(input:checked) {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 1);
+}
+
+.option-radio:is(:hover, :focus-visible, :has(input:checked)) + .option-radio {
+    border-left-color: rgba(255, 255, 255, 0.5);
+}
+.option-radio:nth-last-child(1 of .option-radio):is(:hover, :focus-visible, :has(input:checked)) {
+    border-right-color: rgba(255, 255, 255, 0.5);
+}
+
+.option-radio span {
+    font-size: .8rem;
+}
+
